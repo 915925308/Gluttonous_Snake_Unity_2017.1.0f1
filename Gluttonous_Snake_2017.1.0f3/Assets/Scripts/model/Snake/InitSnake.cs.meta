@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 433ed1ca835f9b34db95f64bcfbd5ae0
+timeCreated: 1500626653
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - YellowSnake: {fileID: 1741880945256722, guid: 9c6678f35e237fd4c983a10a2502e0eb,
+      type: 2}
+  - RedSnake: {fileID: 1741880945256722, guid: 9c6678f35e237fd4c983a10a2502e0eb, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
