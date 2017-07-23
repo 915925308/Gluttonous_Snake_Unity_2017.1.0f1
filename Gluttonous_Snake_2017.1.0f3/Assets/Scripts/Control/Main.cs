@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 
-    public GameObject YellowSnake;
-    public GameObject RedSnake;
+    
     public InitSnake MySnake;
+    public GameObject head;
 	// Use this for initialization
 	void Start () {
-        MySnake = InitSnake.GetInstanteSnake();
-        if(MySnake.SnakeType == InitSnake.SnakeTypes.Yellow)
-        {
-            MySnake.SnakeGameObject = Instantiate(YellowSnake, new Vector3(0, 0, 0), Quaternion.identity);
-            MySnake.SnakeGameObject.name = MySnake.Name;
-        }
-        
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(MySnake);
+        if (MySnake != null)
+        {
+            Controler_Snake.ControlTurn(head);
+        }
     }
 
     public void GetInstanteSnake()
     {
-        MySnake = InitSnake.GetInstanteSnake();
+        MySnake = InitSnake.instance.GetInstanteSnake();
+        head = MySnake.SnakeGameObject.transform.GetChild(0).gameObject;
     }
 }

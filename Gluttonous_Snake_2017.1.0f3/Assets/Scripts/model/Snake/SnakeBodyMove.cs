@@ -8,7 +8,6 @@ public class SnakeBodyMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         InitSnake initsnake = GameObject.Find("Manage").GetComponent<Main>().MySnake;
-        Debug.Log(initsnake);
 	}
 	
 	// Update is called once per frame

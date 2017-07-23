@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Controler_Snake : MonoBehaviour {
 
-   
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void TurnSnake(InitSnake MySnake)
+    public static float TurnSpeed = 2f;
+    public static float f = 0;
+    public static void ControlTurn(GameObject snakeHead)
     {
-        
-    }
+        f = snakeHead.transform.eulerAngles.z;
+        if (Input.GetKey(KeyCode.A))
+            {     
+                f = f + TurnSpeed;
+                snakeHead.transform.eulerAngles = new Vector3(0, 0, f);
+            }
 
-}
+            if (Input.GetKey(KeyCode.D))
+            {
+                float fl = snakeHead.transform.eulerAngles.z;
+                fl = fl - TurnSpeed;
+                snakeHead.transform.eulerAngles = new Vector3(0, 0, fl);
+            }
+            if(Input.GetKey(KeyCode.W))
+        {
+            Destroy(snakeHead);
+        }
+    }
+ }
