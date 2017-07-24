@@ -5,17 +5,23 @@ using UnityEngine;
 public class InitSnake : MonoBehaviour{
 
     public static InitSnake instance;
-
+    [HideInInspector]
     public int Length = 3;                  //蛇的长度
+    [HideInInspector]
     public int Score = 0;                   //蛇的得分
+    [HideInInspector]
     public string Name;                     //蛇的名字
+    [HideInInspector]
     public GameObject SnakeGameObject;      //蛇这个对象
+    [HideInInspector]
     public SnakeTeams TeamType;             //蛇的队伍
+    [HideInInspector]
     public SnakeTypes SnakeType;            //蛇的类型
 
     public GameObject YellowSnake;          //黄色的蛇，对象
     public GameObject RedSnake;             //红色的蛇，对象
-
+    public GameObject YellowSnakeBody;
+    public GameObject RedSnakeBody;
     void Awake()
     {
         instance = this;
@@ -62,6 +68,7 @@ public class InitSnake : MonoBehaviour{
         Length = 3;
         Name = name;
         Score = 0;
+
         if(snaketype == 1)
         {
             SnakeType = SnakeTypes.Yellow;
@@ -76,6 +83,7 @@ public class InitSnake : MonoBehaviour{
         else if(teamtype == 2){
             SnakeType = SnakeTypes.Red;
         }
+
         SnakeGameObject = Instantiate(YellowSnake, new Vector3(0, 0, 0), Quaternion.identity);
         return instance;
     }
@@ -90,6 +98,22 @@ public class InitSnake : MonoBehaviour{
 
         SnakeGameObject = Instantiate(YellowSnake, v, Quaternion.identity);
         return instance;
+    }
+
+    public void ExpandSnake(InitSnake Snake)
+    {
+        int length = Snake.SnakeGameObject.transform.childCount;
+        GameObject G;
+        if (length % 2 == 0)
+        {
+             G = Instantiate(YellowSnakeBody, Snake.SnakeGameObject.transform.GetChild(length - 1).transform.position, Quaternion.identity);
+        }
+        else
+        {
+            G = Instantiate(RedSnakeBody, Snake.SnakeGameObject.transform.GetChild(length - 1).transform.position, Quaternion.identity);
+        }
+        G.transform.SetParent(Snake.SnakeGameObject.transform);
+        G.name = length.ToString();
     }
 
 }

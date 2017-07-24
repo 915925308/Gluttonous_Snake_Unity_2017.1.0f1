@@ -78,14 +78,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\headMove.cs" />
     <Compile Include="Assets\Scripts\Control\Controler_Snake.cs" />
     <Compile Include="Assets\Scripts\Control\Main.cs" />
     <Compile Include="Assets\Scripts\model\Award\Award.cs" />
+    <Compile Include="Assets\Scripts\model\Snake\BodyMove.cs" />
+    <Compile Include="Assets\Scripts\model\Snake\HeadMove.cs" />
     <Compile Include="Assets\Scripts\model\Snake\InitSnake.cs" />
-    <Compile Include="Assets\Scripts\model\Snake\SnakeBodyMove.cs" />
     <Compile Include="Assets\Scripts\move.cs" />
-    <Compile Include="Assets\Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

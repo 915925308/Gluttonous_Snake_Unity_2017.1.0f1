@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Controler_Snake : MonoBehaviour {
 
-    public static float TurnSpeed = 2f;
+    public static float TurnSpeed = 4f;
     public static float f = 0;
     public static void ControlTurn(GameObject snakeHead)
     {
